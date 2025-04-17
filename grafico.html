@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    .container {
+        height: 850px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10%;
+    }
+
+    .graficos {
+        height: 100%;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="graficos">
+            <canvas id="graficoSagazLinha"></canvas>
+        </div>
+
+        <div class="graficos">
+            <canvas id="graficoSagazBar"></canvas>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    const linha = document.getElementById('graficoSagazLinha');
+    const barra = document.getElementById('graficoSagazBar');
+
+    new Chart(linha, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Temperatura',
+                data: [30, 29, 28, 25, 22, 23],
+                borderWidth: 1,
+                backgroundColor: 'red',
+                borderColor: 'red',
+            }, {
+                label: 'Temperatura',
+                data: [80, 82, 80, 85, 80, 83],
+                borderWidth: 1,
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            }]
+        }
+    });
+
+    new Chart(barra, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Temperatura Média',
+                data: [22, 24, 27, 23, 20, 18],
+                borderWidth: 1,
+                backgroundColor: 'red',
+                borderColor: 'red',
+            }, {
+                label: 'Umidade Média',
+                data: [90, 89, 93, 87, 88, 82],
+                borderWidth: 1,
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+
+
+            }]
+        }
+    });
+</script>
